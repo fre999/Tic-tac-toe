@@ -21,16 +21,16 @@ int main() {
     for (int i = 0; i < 16; i++) {
         //print game board
         cout << "   |   |   |   " << endl;
-        cout << " " << board[0][0] << " | " << board[0][1] << " | " << board[0][2] <<" | "<<board[0][3]<< endl;
+        cout << " " << board[0][0] << " | " << board[0][1] << " | " << board[0][2] << " | " << board[0][3] << endl;
         cout << "___|___|___|___" << endl;
         cout << "   |   |   |" << endl;
-        cout << " " << board[1][0] << " | " << board[1][1] << " | " << board[1][2] <<" | "<<board[1][3]<< endl;
+        cout << " " << board[1][0] << " | " << board[1][1] << " | " << board[1][2] << " | " << board[1][3] << endl;
         cout << "___|___|___|___" << endl;
         cout << "   |   |   |" << endl;
-        cout << " " << board[2][0] << " | " << board[2][1] << " | " << board[2][2] <<" | "<<board[2][3]<<endl;
+        cout << " " << board[2][0] << " | " << board[2][1] << " | " << board[2][2] << " | " << board[2][3] << endl;
         cout << "___|___|___|___" << endl;
         cout << "   |   |   |" << endl;
-        cout << " " << board[3][0] << " | " << board[3][1] << " | " << board[3][2] <<" | "<<board[3][3]<<endl;
+        cout << " " << board[3][0] << " | " << board[3][1] << " | " << board[3][2] << " | " << board[3][3] << endl;
         cout << "   |   |   |   " << endl;
 
         if (winner != ' ')
@@ -62,48 +62,48 @@ int main() {
         currentPlayer = (currentPlayer == playerX) ? playerO : playerX;
 
         for (int r = 0; r < 4; r++) {
-            
-            for(int i=0;i<2;i++){
-            if (board[r][i] != ' ' && board[r][i] == board[r][i+1] && board[r][i+1] == board[r][i+2]) {
-                winner = board[r][i];
-                break;
-            }
+
+            for (int i = 0; i < 2; i++) {
+                if (board[r][i] != ' ' && board[r][i] == board[r][i + 1] && board[r][i + 1] == board[r][i + 2]) {
+                    winner = board[r][i];
+                    break;
+                }
             }
         }
         for (int c = 0; c < 4; c++) {
-            for(int i=0;i<2;i++){
-            if (board[i][c] != ' ' && board[i][c] == board[i+1][c] && board[i+1][c] == board[i+2][c]) {
-                winner = board[i][c];
-                break;
-            }
+            for (int i = 0; i < 2; i++) {
+                if (board[i][c] != ' ' && board[i][c] == board[i + 1][c] && board[i + 1][c] == board[i + 2][c]) {
+                    winner = board[i][c];
+                    break;
+                }
             }
 
         }
-        int c=0;
-        for(int i=0;i<2;i++){
-        if (board[i][i] != ' ' && board[i][i] == board[i+1][i+1] && board[i+1][i+1] == board[i+2][i+2])
-        {
-            winner = board[i][i];
-            break;
-        }
-        else if (board[i][c+3] != ' ' && board[i][c+3] == board[i+1][c+2] && board[i+1][c+2] == board[i+2][c+1])
-        {
-            winner = board[i][c+2];
-            break;
-        }
-        c--;
+        int c = 0;
+        for (int i = 0; i < 2; i++) {
+            if (board[i][i] != ' ' && board[i][i] == board[i + 1][i + 1] && board[i + 1][i + 1] == board[i + 2][i + 2])
+            {
+                winner = board[i][i];
+                break;
+            }
+            else if (board[i][c + 3] != ' ' && board[i][c + 3] == board[i + 1][c + 2] && board[i + 1][c + 2] == board[i + 2][c + 1])
+            {
+                winner = board[i][c + 2];
+                break;
+            }
+            c--;
         }
         if (board[1][0] != ' ' && board[1][0] == board[2][1] && board[2][1] == board[3][2])
         {
-            winner = board[i][c+2];
+            winner = board[1][0];
             break;
         }
         else if (board[0][1] != ' ' && board[0][1] == board[1][2] && board[1][2] == board[2][3])
         {
-            winner = board[i][c+2];
+            winner = board[0][1];
             break;
         }
-        else if (winner != ' ')
+        if (winner != ' ')
         {
             cout << "Player is: " << winner << " :is winner" << endl;
         }
